@@ -1,4 +1,4 @@
-# Chatbot Médical — GPT-2 fine-tuné (PyTorch)
+# Chatbot Médical: GPT-2 fine-tuné (PyTorch)
 
 Un chatbot médical conversationnel obtenu par **fine-tuning de GPT-2** sur un jeu
 de questions/réponses de santé, avec analyse exploratoire des données, entraînement
@@ -10,8 +10,8 @@ démonstration **Gradio**.
 ![DL](https://img.shields.io/badge/PyTorch-red)
 ![UI](https://img.shields.io/badge/demo-Gradio-yellow)
 
-> Projet académique — module de **fouille de données**, encadré par le Pr. **Lebbah
-> Mustapha**. ⚠️ *Ce chatbot est un travail pédagogique : il ne fournit pas d'avis
+> Projet académique, module de **fouille de données**, encadré par le Pr. **Lebbah
+> Mustapha**. *Ce chatbot est un travail pédagogique : il ne fournit pas d'avis
 > médical et ne remplace en aucun cas un professionnel de santé.*
 
 ---
@@ -22,16 +22,16 @@ Le projet reprend le modèle de langage **GPT-2** pré-entraîné et l'adapte
 (fine-tuning) à un corpus médical de paires *question → réponse*. Le pipeline
 complet, dans le notebook, suit ces étapes :
 
-1. **Nettoyage des données** — normalisation du texte (caractères spéciaux, espaces)
+1. **Nettoyage des données**, normalisation du texte (caractères spéciaux, espaces)
    à partir d'un fichier `QA.json`.
-2. **Analyse exploratoire (EDA)** — distributions des longueurs de questions et de
+2. **Analyse exploratoire (EDA)**, distributions des longueurs de questions et de
    réponses, fréquences de mots, diversité lexicale, analyse de sentiment
    (TextBlob), similarité TF-IDF / cosinus.
-3. **Fine-tuning de GPT-2** — les paires sont concaténées au format
+3. **Fine-tuning de GPT-2**, les paires sont concaténées au format
    `question <sep> réponse`, tokenisées, puis le modèle est entraîné avec le
    `Trainer` de Hugging Face (3 époques).
-4. **Évaluation** — métriques **BLEU** et **ROUGE** sur l'ensemble de validation.
-5. **Déploiement de démonstration** — une interface **Gradio** pour dialoguer avec
+4. **Évaluation**, métriques **BLEU** et **ROUGE** sur l'ensemble de validation.
+5. **Déploiement de démonstration**, une interface **Gradio** pour dialoguer avec
    le modèle.
 
 ## Jeu de données
@@ -93,8 +93,8 @@ generate_text("What are the symptoms of the flu?")
 
 Le modèle est évalué sur l'ensemble de validation avec :
 
-- **BLEU** — recouvrement en n-grammes entre la réponse générée et la référence ;
-- **ROUGE-1 / ROUGE-L** — rappel de mots et de plus longues sous-séquences communes.
+- **BLEU**, recouvrement en n-grammes entre la réponse générée et la référence ;
+- **ROUGE-1 / ROUGE-L**, rappel de mots et de plus longues sous-séquences communes.
 
 La fonction `evaluate(sample_size=...)` du notebook calcule ces métriques et
 affiche un récapitulatif.
